@@ -18,7 +18,7 @@ shinyServer(
 
                 output$box = renderPlot({
                     colm = as.numeric(input$var)
-                    ggplot(iris, aes(as.factor(iris$Species), iris[colm], fill = Species)) +
+                    ggplot(iris, aes(as.factor(iris$Species), iris[,colm], fill = Species)) +
                         geom_boxplot() +
                         scale_y_continuous(expand = c(0,0))+
                         xlab("Species") +
@@ -27,7 +27,7 @@ shinyServer(
 
                 output$data = renderTable({
                     col = as.numeric(input$var)
-                    iris[col]
+                    iris[c(col,5)]
                 })
 
                 output$str = renderPrint({
