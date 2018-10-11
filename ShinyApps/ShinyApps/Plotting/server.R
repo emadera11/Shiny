@@ -1,5 +1,8 @@
 library(shiny)
 library(ggplot2)
+library(dplyr)
+
+
 
 colnames(iris)
 
@@ -27,7 +30,7 @@ shinyServer(
 
                 output$data = renderTable({
                     col = as.numeric(input$var)
-                    iris[c(col,5)]
+                    iris %>% select(col, 5) %>% filter(Species == input$var1)
                 })
 
                 output$str = renderPrint({

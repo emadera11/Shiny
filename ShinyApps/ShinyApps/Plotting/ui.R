@@ -5,6 +5,7 @@ shinyUI(
                   titlePanel(title = h4("Demonstration on how to plot and render plot in Shiny", align="center")),
                   sidebarLayout(
                                 sidebarPanel(
+                                             selectInput("var1", "Select Species", choices=c("setosa", "versicolor", "virginica")),
                                              selectInput("var", "1. Select the variable for the IRIS dataset: ", choices = c("Sepal.Lenght" = 1, "Sepal.Width" = 2, "Petal.Length" = 3, "Petal.Width" = 4)),
                                              br(),
                                              sliderInput("bins", "Select number of Bins: ", min = 5, max = 25, value = 15),
